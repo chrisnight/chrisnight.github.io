@@ -1,0 +1,144 @@
+@charset "utf-8";
+html,body,ul,li,p{
+	margin: 0;
+	padding: 0;
+}
+html{
+	height: 100%;
+	font-size: 100px;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+li{
+	list-style-type: none;
+}
+header,nav,section,footer{
+	display: block;
+}
+body{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+}
+header{
+	height: 0.75rem;
+	background-color: #3f454f;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 0.16rem;
+	box-sizing: border-box;
+	align-items: center;
+}
+header i{
+	font-size: 25px !important;
+	vertical-align: middle;
+}
+header a{
+	color: white;
+	font-size: 14px;
+	vertical-align: middle;
+}
+nav{
+	height: 1.04rem;
+	background-color: #3f454f;
+	color: white;
+}
+nav ul{
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+}
+nav ul li{
+	position: relative;
+}
+nav ul li i{
+	display: block;
+	font-size: 36px !important;
+	margin-bottom: 0.13rem;
+}
+nav ul li:last-child i{
+	background: url(../img/header.jpg);
+	background-size: 100% 100%;
+	height: 0.4rem;
+	width: 0.4rem;
+}
+nav ul li:nth-child(3):before{
+	content: "新";
+	display: block;
+	width: 0.14rem;
+	height: 0.14rem;
+	background-color: red;
+	color: white;
+	font-size: 10px;
+	border-radius: 50%;
+	position: absolute;
+	top: -0.05rem;
+	right: -0.05rem;
+}
+nav a{
+	color: white;
+}
+section{
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	font-size: 12px;
+	overflow: auto;
+}
+section ul{
+	display: flex;
+	text-align: center;
+	height: 0.9rem;
+}
+section ul li{
+	height: 0.9rem;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	box-sizing: border-box;
+	padding: 0.22rem;
+	width: 25%;
+}
+section ul li i{
+	display: block;
+	font-size: 16px !important;
+}
+section ul li a{
+	display: block;
+	line-height: 0.42rem;
+}
+section ul:first-child li:first-child i{
+	color: blue;
+}
+section ul:first-child li:nth-child(2) i{
+	color: yellow;
+}
+section ul:first-child li:nth-child(3) i{
+	color: blanchedalmond;
+}
+section ul:first-child li:nth-child(4) i{
+	color: orange;
+}
+footer{
+	height: 0.5rem;
+}
+footer ul{
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+}
+footer ul li i{
+	display: block;
+	font-size: 22px !important;
+}
+footer ul li a{
+	color: #929292;
+	font-size: 12px;
+}
+footer li a:focus{
+	color: blue;
+}
+
