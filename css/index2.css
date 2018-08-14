@@ -114,7 +114,7 @@ section ul li i{
 }
 section ul li a{
 	display: block;
-	line-height: 0.42rem;
+	/*line-height: 0.42rem;*/
 }
 section .ImgDiv{
 	position: relative;
@@ -152,4 +152,76 @@ section .sTitleLeft{
 section .sTitleRight{
 	flex: 1;
 	border-bottom: 2px solid #CCCCCC;
+}
+
+
+/*详情页*/
+.detail{
+	padding: 0 5px;
+}
+.detail .branch{
+	padding: 5px 0;
+	font-size: 15px;
+	font-weight: bold;
+	border-bottom: 1px solid gainsboro;
+}
+
+.detail .content{
+	padding: 10px 0;
+}
+.detail .content .allDes{
+	/*overflow: hidden;*/
+	display: flex;
+	justify-content: space-between;
+	/*padding: 0 0.16rem;*/
+	box-sizing: border-box;
+	/*align-items: center;*/
+}
+.detail .content .allDes .des{
+	padding-left: 15px;
+	padding-bottom: 15px;
+}
+.detail .content .allDes h5{
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
+	font-size: 15px;
+}
+.detail .content .allDes h6{
+	padding: 0;
+	margin: 0;
+	color: cornflowerblue;
+	margin-bottom: 15px;
+}
+.detail .content .allDes .des p span{
+	color: gray;
+}
+
+.detail .content .address .addressSpan{
+	display: flex;
+	/*justify-content: space-between;*/
+}
+.detail .content .address .addressSpan span{
+	flex: 1;
+	text-align: center;
+	background-color: gainsboro;
+	border-top: 3px solid gray;
+	margin-right: 2px;
+	padding: 5px 0;
+}
+.detail .content .address .addressSpan .addressChecked{
+	background-color: white;
+	border-top: 3px solid orange;
+}
+.address1_href,.address2_href,.address3_href{
+	padding: 10px;
+	
+}
+.address1_href span{
+	display: inline-block;
+	padding: 5px 15px;
+	text-align: center;
+	border: 1px solid darkorange;
+	color: orange;
+	margin-right: 15px;
 }
