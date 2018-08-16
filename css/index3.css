@@ -142,3 +142,7 @@ body{
 	border: 1px solid #f6ce6c;
 	color: #f6ce6c;
 }
+a{
+	text-decoration: none;
+	color: #f6ce6c;
+}
