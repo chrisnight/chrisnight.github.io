@@ -19,19 +19,157 @@
 		<script type="text/javascript">
 			$(function(){
 				$('.main').fadeIn(5000);
-//				$(".tips").css({"-webkit-animation":"twinkling 1s infinite ease-in-out"});
-var mySwiper = new Swiper ('.swiper-container', {
-    direction: 'vertical',
 
-    
-    noSwiping : true,
-    noSwipingClass : 'stop-swiping',
-  })        
+				var mySwiper = new Swiper ('.swiper-container', {
+				    direction: 'vertical',
+				
+				    
+				    noSwiping : true,
+				    noSwipingClass : 'stop-swiping',
+				});    
   
-  
+  				$('.item').click(function(){
+  					$('.swiper-container').fadeOut(2000);
+  					setTimeout(function () {
+        				$('.teacher_detail').fadeIn(2000);
+    				}, 2000);
+  				});
+  				
+  				$('.pick_btn').click(function(){
+					$('.save_div').fadeIn(2000);
+				});
+				$('.close').click(function(){
+					$('.save_div').fadeOut(2000);
+				});
+  				$('.back_div').click(function(){
+  					$('.teacher_detail').fadeOut(2000);					
+  					setTimeout(function () {
+        				$('.swiper-container').fadeIn(2000);
+    				}, 2000);
+				});
 			});
 		</script>
-		
+		<style type="text/css">
+			*{
+				/*margin: 0;
+				padding: 0;*/
+			}
+			.teacher_detail h3{
+				text-align: center;
+				margin: 20px 0;
+			}
+			.teacher_detail{
+				display: none;
+				height: 100%;
+			}
+			.teacher_detail .main_div{
+				height: 100%;
+				padding: 0 10px;
+				overflow: scroll;
+			}
+			.cover_img{
+				text-align: center;
+			}
+			.cover_img img{
+				width: 100%;
+			}
+			.teacher_detail .main_div p{
+				line-height: 25px;
+				color: gray;
+				padding: 20px 0 10px 0;
+			}
+			.pick_div{
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				/*font-size: 0;*/
+				background-color: rgba(0,0,0,0.3);
+				padding: 10px 0;
+				
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+			}
+			.pick_div span{
+				display: inline-block;
+				height: 50px;
+			}
+			.pick_div img{
+				width: 100%;
+			}
+			.back_div{
+				background-color: #cfa972;
+				margin: 0 15px;
+				padding: 0 15px;
+				
+			}
+			.back_div span{
+				height: 100%;
+				vertical-align: middle;
+			}
+			.back_div i{
+				color: white;
+				font-size: 25px;
+				/*line-height: 100%;*/
+				vertical-align: middle;
+				display: inline-block;
+			}
+			.pick_btn{
+				background-color: #f6ce6e;
+				flex: 1;
+				padding: 5px 0;
+				text-align: center;
+				margin-right: 15px;
+				color: white;
+				font-size: 20px;
+			}
+			.save_div{
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				background: rgba(0,0,0,0.8);
+				/*overflow: hidden;*/
+				display: none;
+			}
+			.pick_img{
+				text-align: center;
+				height: 80%;
+			}
+			.pick_img img{
+				/*width: 80%;*/
+				width: auto;
+				height: 100%;
+			}
+			.line1{
+				padding-top: 10px;
+				padding-right: 10px;
+				padding-bottom: 10px;
+				text-align: right;
+			}
+			.line1 span{
+				display: inline-block;
+				border: 2px solid white;
+				border-radius: 50%;
+				width: 30px;
+				height: 30px;
+				font-size: 20px;
+				text-align: center;
+				line-height: 30px;
+				color: white;
+			}
+			.line1 i{
+				font-size: 50px;
+				color: white;
+			}
+			.save_div p{
+				text-align: center;
+				margin: 0;
+				padding: 3px 0;
+				color: white;
+			}
+		</style>
 	</head>
 	<body>
 		
@@ -58,7 +196,7 @@ var mySwiper = new Swiper ('.swiper-container', {
 							<div class="content_item">
 								<h3>佛山市第二十五小学杜学杰出</h3>
 								<p>勤耕不缀二十载犹向学堂寄深情，你用剪纸的技巧，剪出一片芳华。</p>
-								<span><a href="teacher_detail.html">详情 &gt;</a></span>
+								<span>详情 &gt;</span>
 							</div>							
 						</div>
 						<div class="item">
@@ -69,7 +207,7 @@ var mySwiper = new Swiper ('.swiper-container', {
 							<div class="content_item">
 								<h3>佛山市第二十五小学杜学杰出</h3>
 								<p>勤耕不缀二十载犹向学堂寄深情，你用剪纸的技巧，剪出一片芳华。</p>
-								<span><a href="teacher_detail.html">详情 &gt;</a></span>
+								<span>详情 &gt;</span>
 							</div>							
 						</div>
 						<div class="item">
@@ -80,7 +218,7 @@ var mySwiper = new Swiper ('.swiper-container', {
 							<div class="content_item">
 								<h3>佛山市第二十五小学杜学杰出</h3>
 								<p>勤耕不缀二十载犹向学堂寄深情，你用剪纸的技巧，剪出一片芳华。</p>
-								<span><a href="teacher_detail.html">详情 &gt;</a></span>
+								<span>详情 &gt;</span>
 							</div>							
 						</div>
 						<div class="item">
@@ -91,7 +229,7 @@ var mySwiper = new Swiper ('.swiper-container', {
 							<div class="content_item">
 								<h3>佛山市第二十五小学杜学杰出</h3>
 								<p>勤耕不缀二十载犹向学堂寄深情，你用剪纸的技巧，剪出一片芳华。</p>
-								<span><a href="teacher_detail.html">详情 &gt;</a></span>
+								<span>详情 &gt;</span>
 							</div>							
 						</div>
 						<div class="item">
@@ -102,7 +240,7 @@ var mySwiper = new Swiper ('.swiper-container', {
 							<div class="content_item">
 								<h3>佛山市第二十五小学杜学杰出</h3>
 								<p>勤耕不缀二十载犹向学堂寄深情，你用剪纸的技巧，剪出一片芳华。</p>
-								<span><a href="teacher_detail.html">详情 &gt;</a></span>
+								<span>详情 &gt;</span>
 							</div>							
 						</div>
 						<div class="item">
@@ -113,107 +251,80 @@ var mySwiper = new Swiper ('.swiper-container', {
 							<div class="content_item">
 								<h3>佛山市第二十五小学杜学杰出</h3>
 								<p>勤耕不缀二十载犹向学堂寄深情，你用剪纸的技巧，剪出一片芳华。</p>
-								<span><a href="teacher_detail.html">详情 &gt;</a></span>
+								<span>详情 &gt;</span>
+							</div>							
+						</div>
+						<div class="item">
+							<div class="img_item">
+								<span></span>
+								<img src="img/header1.png"/>
+							</div>
+							<div class="content_item">
+								<h3>佛山市第二十五小学杜学杰出</h3>
+								<p>勤耕不缀二十载犹向学堂寄深情，你用剪纸的技巧，剪出一片芳华。</p>
+								<span>详情 &gt;</span>
+							</div>							
+						</div>
+						<div class="item">
+							<div class="img_item">
+								<span></span>
+								<img src="img/header1.png"/>
+							</div>
+							<div class="content_item">
+								<h3>佛山市第二十五小学杜学杰出</h3>
+								<p>勤耕不缀二十载犹向学堂寄深情，你用剪纸的技巧，剪出一片芳华。</p>
+								<span>详情 &gt;</span>
 							</div>							
 						</div>
 					</div>
         		</div>
     		</div>
     	</div>
-		<!--<div class="section sec1">
-			<div class="main">
+    	
+    	<div class="teacher_detail">
+    		<div class="main_div">
+				<h3>"剪纸达人"杜学杰</h3>
+				<div class="cover_img">
+					<img src="img/cover1.png"/>
+				</div>
+				<p>
+					这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是
+					内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内
+					容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这
+					是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容
+					这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容
+					这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容
+					这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容
+				</p>
+				<div class="pick_div">
+					<div class="back_div">
+						<span></span>
+						<i class="iconfont icon-jiantou_xiangzuoliangci"></i>
+					</div>
+					<div class="pick_btn">
+						我要PICK TA
+					</div>
+					<!--<span id="">
+					&lt;&lt;
+					</span>-->
+					<!--<img src="img/pick.png"/>-->
+				</div>
 				
 			</div>
-			<div class="tips">
-					
+			<div class="save_div">
+				<div class="line1">
+					<i class="iconfont icon-round_close_light close"></i>
+				</div>
+				<div class="pick_img">
+					<img src="img/2.jpg"/>
+				</div>
+				<p>长按保存图片</p>
+				<p>转发图片为TA点赞</p>
 			</div>
-		</div>
-		<div class="section sec2" style="background-color:#63E339;">
-			<div class="container teacher_list">
-				<div class="row">
-					<div class="col-xs-4">
-						<img src="img/header.jpg"/>
-					</div>
-					<div class="col-xs-8">
-						<h3>高海宁</h3>
-						<p>根深蒂固三大高手帝国时代</p>
-						<p><span>详情</span></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4">
-						<img src="img/header.jpg"/>
-					</div>
-					<div class="col-xs-8">
-						<h3>高海宁</h3>
-						<p>根深蒂固三大高手帝国时代</p>
-						<p><span>详情</span></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4">
-						<img src="img/header.jpg"/>
-					</div>
-					<div class="col-xs-8">
-						<h3>高海宁</h3>
-						<p>根深蒂固三大高手帝国时代</p>
-						<p><span>详情</span></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4">
-						<img src="img/header.jpg"/>
-					</div>
-					<div class="col-xs-8">
-						<h3>高海宁</h3>
-						<p>根深蒂固三大高手帝国时代</p>
-						<p><span>详情</span></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4">
-						<img src="img/header.jpg"/>
-					</div>
-					<div class="col-xs-8">
-						<h3>高海宁</h3>
-						<p>根深蒂固三大高手帝国时代</p>
-						<p><span>详情</span></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4">
-						<img src="img/header.jpg"/>
-					</div>
-					<div class="col-xs-8">
-						<h3>高海宁</h3>
-						<p>根深蒂固三大高手帝国时代</p>
-						<p><span>详情</span></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4">
-						<img src="img/header.jpg"/>
-					</div>
-					<div class="col-xs-8">
-						<h3>高海宁</h3>
-						<p>根深蒂固三大高手帝国时代</p>
-						<p><span>详情</span></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4">
-						<img src="img/header.jpg"/>
-					</div>
-					<div class="col-xs-8">
-						<h3>高海宁</h3>
-						<p>根深蒂固三大高手帝国时代</p>
-						<p><span>详情</span></p>
-					</div>
-				</div>
-			</div>
-		</div>	-->
-		<script src="js/fakeloader.min.js" type="text/javascript" charset="utf-8"></script>
-<script>
+    	</div>
+		
+		<!--<script src="js/fakeloader.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
             $(document).ready(function(){
                 $(".fakeloader").fakeLoader({
                     timeToHide:1200,
@@ -221,6 +332,6 @@ var mySwiper = new Swiper ('.swiper-container', {
                     spinner:"spinner2"
                 });
             });
-        </script>
+        </script>-->
 	</body>
 </html>
