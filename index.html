@@ -57,6 +57,7 @@
   
   				$('.item').on('click', function(){
   					$('.teacher_detail .main_div').empty();
+  					
   					var oid = $(this).val();
 					console.log(oid);
 
@@ -75,7 +76,7 @@
 //					$('.swiper-container').hide();
   					setTimeout(function () {
 //      				$('.teacher_detail').fadeIn(200);
-						$('.teacher_detail').show();
+						$('.teacher_detail').show();$('.teacher_detail .main_div').scrollTop(0);
     				}, 200);
   				});
   				
