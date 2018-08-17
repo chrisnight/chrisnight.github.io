@@ -20,7 +20,7 @@
 		<script type="text/javascript">
 			
 			$(function(){
-				$('.main').fadeIn(5000);
+				$('.main').fadeIn(3000);
 
 				
 				
@@ -68,23 +68,23 @@
 					$('.teacher_detail .main_div').append(html);
 					$('.pick_img img').attr('src', teacher_list[oid].poster);
 
-  					$('.swiper-container').fadeOut(1000);
+  					$('.swiper-container').fadeOut(200);
   					setTimeout(function () {
-        				$('.teacher_detail').fadeIn(1000);
-    				}, 1000);
+        				$('.teacher_detail').fadeIn(200);
+    				}, 200);
   				});
   				
   				$('.pick_btn').click(function(){
-					$('.save_div').fadeIn(1000);
+					$('.save_div').fadeIn(200);
 				});
 				$('.close').click(function(){
-					$('.save_div').fadeOut(1000);
+					$('.save_div').fadeOut(200);
 				});
   				$('.back_div').click(function(){
-  					$('.teacher_detail').fadeOut(1000);					
+  					$('.teacher_detail').fadeOut(200);					
   					setTimeout(function () {
-        				$('.swiper-container').fadeIn(1000);
-    				}, 1000);
+        				$('.swiper-container').fadeIn(200);
+    				}, 200);
 				});
 				
 				
@@ -97,6 +97,33 @@
 			}
 			
 		</style>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script>
+			wx.config({
+				debug: false,
+				appId: 'wxfb95e4025a5d4614',
+				timestamp: '1498633007',
+				nonceStr: 'tnZJBsdrUo88MFiB',
+				signature: 'cae67a0a883822e1087cba091321b14b73152210',
+				jsApiList: [
+					'onMenuShareTimeline',
+					'onMenuShareAppMessage'
+				  ]
+			});
+			wx.ready(function () {
+				var shareData = {
+					title: '禅城名教师',	//	标题
+					desc: '禅城名教师',	//	描述
+					link: 'https://chrisnight.github.io/',	//	分享的URL，必须和当前打开的网页的URL是一样的
+					imgUrl: 'https://chrisnight.github.io/img/wx.jpg'	//	缩略图地址
+				};
+				wx.onMenuShareAppMessage(shareData);
+				wx.onMenuShareTimeline(shareData);
+			});
+			wx.error(function (res) {
+			  //alert(res.errMsg);//错误提示
+			});
+		</script>
 	</head>
 	<body>
 		<div id="Div1" style="display: none"><img id="Img1" width="100%" src="img/wx.jpg" style="position: absolute; top: 0; left: 0;"></div>
