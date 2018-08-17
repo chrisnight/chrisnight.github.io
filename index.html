@@ -16,10 +16,35 @@
 		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
 		
 		<script src="js/swiper.min.js"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			
 			$(function(){
 				$('.main').fadeIn(5000);
 
+				
+				
+//				alert(teacher_list[0].des);
+				for(var i = 0; i < teacher_list.length; i++){
+//                  var html = "<li><a href='/indexDetail?id=" + ajaxText[i]['_id'] + "'><div class='ImgDiv'><img src=" + ajaxText[i].posterUrl + "/><p>更新到08集</p></div><div class='ImgTitle'><p class='imgTitle'>" + ajaxText[i].title + "</p><p>鸣人，佐助</p></div></li>";
+                    
+                    // var html = "<li><a href='" + ajaxText[i].href + "'><div class='ImgDiv'><img src=" + ajaxText[i].mainpic + "/><p>更新到08集</p></div><div class='ImgTitle'><p class='imgTitle'>" + ajaxText[i].title + "</p><p>鸣人，佐助</p></div></li>";
+                    // var html = "<tr><td>"+ajaxText[i].ID+"</td><td>"+ ajaxText[i].classify + "</td><td>";
+                    // html+= ajaxText[i].topic + "</td><td>" + ajaxText[i].publisher + "</td><td>";
+                    // html+= ajaxText[i].date + "</td><td>"+ajaxText[i].visitNum+"</td>";
+                    // html+= "<td>"+ajaxText[i].thumbsUp+"</td><td>未开放</td><td><a class='btn btn-primary'>修改</a> ";
+                    // html+= "<a data-id='"+ajaxText[i].ID+"' class='btn btn-danger del'>删除</a></td></tr>";
+                    var oItem = document.createElement('div');
+                    oItem.value = i;
+                    oItem.className = 'item';
+                    var html = '<div class="img_item"><span></span><img src="' + teacher_list[i].headerimg + '"/></div>';
+                    html += '<div class="content_item"><h3>' + teacher_list[i].school + teacher_list[i].name + '</h3><p>' + teacher_list[i].title + '</p><span>详情 &gt;</span></div>';
+                    oItem.innerHTML = html;
+//                  alert(oItem.value);
+                    $('.teacher_list').append(oItem);
+                    
+                }
+				
 				var mySwiper = new Swiper ('.swiper-container', {
 				    direction: 'vertical',
 				
@@ -28,7 +53,21 @@
 				    noSwipingClass : 'stop-swiping',
 				});    
   
-  				$('.item').click(function(){
+  				$('.item').on('click', function(){
+  					$('.teacher_detail .main_div').empty();
+  					var oid = $(this).val();
+					console.log(oid);
+
+					var html = '<h3>"' + teacher_list[oid].sname + '"' + teacher_list[oid].name + '</h3>';
+					html += '<div class="cover_img"><img src="' + teacher_list[oid].coverimg + '"/></div>';
+					html += '<p>' + teacher_list[oid].des + '</p>';
+//					html += '<div class="pick_div"><div class="back_div"><span></span><i class="iconfont icon-jiantou_xiangzuoliangci"></i></div><div class="pick_btn">我要PICK TA</div></div>';
+//					html += '<div class="save_div"><div class="line1"><i class="iconfont icon-round_close_light close"></i></div><div class="pick_img"><img src="' + teacher_list[oid].cover + '"/></div><p>长按保存图片</p><p>转发图片为TA点赞</p></div>';
+//					alert(html);
+//console.log($('.teacher_detail'));
+					$('.teacher_detail .main_div').append(html);
+					$('.pick_img img').attr('src', teacher_list[oid].poster);
+
   					$('.swiper-container').fadeOut(1000);
   					setTimeout(function () {
         				$('.teacher_detail').fadeIn(1000);
@@ -47,6 +86,8 @@
         				$('.swiper-container').fadeIn(1000);
     				}, 1000);
 				});
+				
+				
 			});
 		</script>
 		<style type="text/css">
@@ -172,7 +213,7 @@
 		</style>
 	</head>
 	<body>
-		
+		<div id="Div1" style="display: none"><img id="Img1" width="100%" src="img/wx.jpg" style="position: absolute; top: 0; left: 0;"></div>
 		<div class="swiper-container main_div">
     		<div class="swiper-wrapper">
         		<div class="swiper-slide section sec1">
@@ -188,7 +229,7 @@
         		</div>
         		<div class="swiper-slide stop-swiping section">
         			<div class="teacher_list">
-						<div class="item">
+						<!--<div class="item">
 							<div class="img_item">
 								<span></span>
 								<img src="img/header1.png"/>
@@ -275,7 +316,7 @@
 								<p>勤耕不缀二十载犹向学堂寄深情，你用剪纸的技巧，剪出一片芳华。</p>
 								<span>详情 &gt;</span>
 							</div>							
-						</div>
+						</div>-->
 					</div>
         		</div>
     		</div>
@@ -283,7 +324,7 @@
     	
     	<div class="teacher_detail">
     		<div class="main_div">
-				<h3>"剪纸达人"杜学杰</h3>
+				<!--<h3>"剪纸达人"杜学杰</h3>
 				<div class="cover_img">
 					<img src="img/cover1.png"/>
 				</div>
@@ -295,8 +336,11 @@
 					这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容
 					这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容
 					这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容
-				</p>
-				<div class="pick_div">
+				</p>-->
+				
+				
+			</div>
+			<div class="pick_div">
 					<div class="back_div">
 						<span></span>
 						<i class="iconfont icon-jiantou_xiangzuoliangci"></i>
@@ -304,13 +348,7 @@
 					<div class="pick_btn">
 						我要PICK TA
 					</div>
-					<!--<span id="">
-					&lt;&lt;
-					</span>-->
-					<!--<img src="img/pick.png"/>-->
 				</div>
-				
-			</div>
 			<div class="save_div">
 				<div class="line1">
 					<i class="iconfont icon-round_close_light close"></i>
