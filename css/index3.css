@@ -167,10 +167,14 @@ a{
 			.cover_img img{
 				width: 100%;
 			}
+			.teacher_detail .main_div .detail_p{
+				padding: 20px 0 60px 0;
+			}
 			.teacher_detail .main_div p{
 				line-height: 25px;
 				color: gray;
-				padding: 20px 0 60px 0;
+				/*padding: 20px 0 60px 0;*/
+				text-indent: 2em;
 			}
 			.pick_div{
 				position: fixed;

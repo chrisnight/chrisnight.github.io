@@ -13,6 +13,7 @@
 		<!--引入zepto.js-->
 		<!--<script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.js"></script>-->
 		<!--引入pageSlider.js文件-->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css">
 		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
 		
 		<script src="js/swiper.min.js"></script>
@@ -61,7 +62,8 @@
 
 					var html = '<h3>"' + teacher_list[oid].sname + '"' + teacher_list[oid].name + '</h3>';
 					html += '<div class="cover_img"><img src="' + teacher_list[oid].coverimg + '"/></div>';
-					html += '<p>' + teacher_list[oid].des + '</p>';
+//					html += '<p>' + teacher_list[oid].des + '</p>';
+					html += '<div class="detail_p">' + teacher_list[oid].des + '</div>';
 //					html += '<div class="pick_div"><div class="back_div"><span></span><i class="iconfont icon-jiantou_xiangzuoliangci"></i></div><div class="pick_btn">我要PICK TA</div></div>';
 //					html += '<div class="save_div"><div class="line1"><i class="iconfont icon-round_close_light close"></i></div><div class="pick_img"><img src="' + teacher_list[oid].cover + '"/></div><p>长按保存图片</p><p>转发图片为TA点赞</p></div>';
 //					alert(html);
@@ -69,9 +71,11 @@
 					$('.teacher_detail .main_div').append(html);
 					$('.pick_img img').attr('src', teacher_list[oid].poster);
 
-  					$('.swiper-container').fadeOut(200);
+					$('.swiper-container').fadeOut(500);
+//					$('.swiper-container').hide();
   					setTimeout(function () {
-        				$('.teacher_detail').fadeIn(200);
+//      				$('.teacher_detail').fadeIn(200);
+						$('.teacher_detail').show();
     				}, 200);
   				});
   				
@@ -267,7 +271,7 @@ var appid = '';  // 应用id,如果有可以填，没有就留空
     		</div>
     	</div>
     	
-    	<div class="teacher_detail">
+    	<div class="teacher_detail animated bounceInRight">
     		<div class="main_div">
 				<!--<h3>"剪纸达人"杜学杰</h3>
 				<div class="cover_img">
@@ -294,7 +298,7 @@ var appid = '';  // 应用id,如果有可以填，没有就留空
 						我要PICK TA
 					</div>
 				</div>
-			<div class="save_div">
+			<div class="save_div animated bounceInUp">
 				<div class="line1">
 					<i class="iconfont icon-round_close_light close"></i>
 				</div>
