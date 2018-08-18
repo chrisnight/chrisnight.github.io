@@ -91,6 +91,7 @@ body{
 .teacher_list{
 	height: 100%;
 	overflow: scroll;
+	-webkit-overflow-scrolling : touch;
 	/*position: relative;*/
 	/*z-index: 100;*/
 	/*padding: 5px 0;*/
@@ -160,6 +161,7 @@ a{
 				height: 100%;
 				padding: 0 15px;
 				overflow: scroll;
+				-webkit-overflow-scrolling : touch;
 			}
 			.cover_img{
 				text-align: center;
