@@ -100,23 +100,17 @@
 				$.ajax({
 				    type: "GET",
 				    async:false,
-				    url: 'http://leejune.ebenhang.com/wx/getJsConfig/wx8a87cb88bbe0c0b4?jsApiList=onMenuShareTimeline,onMenuShareAppMessage&url=chrisnight.ebenhang.com/',
+				    url: 'http://leejune.ebenhang.com/wx/getJsConfig/wx8a87cb88bbe0c0b4',
+				    data: {
+				    	jsApiList : 'onMenuShareTimeline,onMenuShareAppMessage',
+				    	url : location.href.split('#')[0]
+				    },
 				    dataType: 'json',
 				    success: function(data){
-				        //config=data;//alert(config);
-				        console.log(data);
-				        wx.config({
-							debug: false,
-							appId: data.appId,
-							timestamp: data.timestamp,
-							nonceStr: data.nonceStr,
-							signature: data.signature,
-							jsApiList: [
-								'onMenuShareTimeline',
-								'onMenuShareAppMessage'
-							  ]
-						});
-						
+				        config=data;//alert(config);
+				        console.log(config);
+				        wx.config(data);
+
 						var shareData = {
 							title: '禅城名教师',	//	标题
 							desc: '禅城名教师',	//	描述
