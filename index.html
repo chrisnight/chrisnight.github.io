@@ -104,7 +104,7 @@
 				    data: {
 				    	jsApiList : 'onMenuShareTimeline,onMenuShareAppMessage',
 				    	url : location.href.split('#')[0],
-				    	debug: true,
+				    	debug: false,
 				    },
 				    dataType: 'json',
 				    success: function(data){
@@ -118,7 +118,7 @@
 							link: 'http://chrisnight.ebenhang.com/',	//	分享的URL，必须和当前打开的网页的URL是一样的
 							imgUrl: 'http://chrisnight.ebenhang.com/img/wx.jpg',	//	缩略图地址
 							success: function(){
-								alert(1);
+//								alert(1);
 							}
 						};
 						wx.onMenuShareAppMessage(shareData);
