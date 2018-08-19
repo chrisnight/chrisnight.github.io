@@ -101,7 +101,7 @@
 				    type: "GET",
 				    async:false,
 				    url: 'http://leejune.ebenhang.com/wx/getJsConfig/wx8a87cb88bbe0c0b4?jsApiList=onMenuShareTimeline,onMenuShareAppMessage&url=http://chrisnight.ebenhang.com/',
-//				    dataType: 'jsonp',
+				    dataType: 'json',
 				    success: function(data){
 				        config=data;//alert(config);
 				        console.log(config);
@@ -121,7 +121,10 @@
 							title: '禅城名教师',	//	标题
 							desc: '禅城名教师',	//	描述
 							link: 'http://chrisnight.ebenhang.com/',	//	分享的URL，必须和当前打开的网页的URL是一样的
-							imgUrl: 'http://chrisnight.ebenhang.com/img/wx.jpg'	//	缩略图地址
+							imgUrl: 'http://chrisnight.ebenhang.com/img/wx.jpg',	//	缩略图地址
+							success: function(){
+								alert(1);
+							}
 						};
 						wx.onMenuShareAppMessage(shareData);
 						wx.onMenuShareTimeline(shareData);
