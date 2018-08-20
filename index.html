@@ -33,7 +33,7 @@
         event.stopPropagation(); //阻止冒泡
     }
 			$(function(){
-				$('#mc_play audio').get(0).play();
+				
 				$('.main').fadeIn(3000);
 
 				
@@ -124,6 +124,7 @@
 
 						
 						wx.ready(function(){
+							$('#mc_play audio').get(0).play();
 							var shareData = {
 								title: '禅城名教师，等你来pick',	//	标题
 								desc: '为这些可爱的人儿点赞！',	//	描述
