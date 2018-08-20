@@ -21,7 +21,17 @@
 		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 		<script type="text/javascript">
-			
+			function play_music(){
+        if ($('#mc_play').hasClass('on')){
+            $('#mc_play audio').get(0).pause();
+            $('#mc_play').attr('class','stop');
+        }else{
+            $('#mc_play audio').get(0).play();
+            $('#mc_play').attr('class','on');
+        }
+        $('#music_play_filter').hide();
+        event.stopPropagation(); //阻止冒泡
+    }
 			$(function(){
 				
 				$('.main').fadeIn(3000);
@@ -132,7 +142,10 @@
 				   error: function(data){
 				   	console.log(data);
 				   }
-				})
+				});
+				
+				
+				
 				
 			});
 		</script>
@@ -350,6 +363,14 @@
 				<p>转发图片为TA点赞</p>
 			</div>
     	</div>
+    	
+    	<span id="musicControl">
+	        <a id="mc_play" class="on" onclick="play_music()">
+	            <audio id="musicfx" loop="loop" autoplay="autoplay">
+	                <source src="img/1.mp3" type="audio/mpeg">
+	            </audio>
+	        </a>
+		</span>
 		
 		<!--<script src="js/fakeloader.min.js" type="text/javascript" charset="utf-8"></script>
 		<script>
