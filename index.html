@@ -3,385 +3,175 @@
 	<head>
 		<meta charset="utf-8" />
 		<!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
-		<title>禅城名教师</title>
+		<title>建材</title>
 		<meta name="viewport" content="width=divice-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-		<link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css"/>
-		<link rel="stylesheet" type="text/css" href="css/index3.css"/>
-		<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+		<!--<link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css"/>-->
+		<!--<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>-->
 		
-		<!--引入zepto.js-->
-		<!--<script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.js"></script>-->
-		<!--引入pageSlider.js文件-->
-		<link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css">
-		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<!--<link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css">-->
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/1001shop.css"/>
+
 		
-		<script src="js/swiper.min.js"></script>
-		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
-		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-		<script type="text/javascript">
-			function play_music(){
-        if ($('#mc_play').hasClass('on')){
-            $('#mc_play audio').get(0).pause();
-            $('#mc_play').attr('class','stop');
-        }else{
-            $('#mc_play audio').get(0).play();
-            $('#mc_play').attr('class','on');
-        }
-        $('#music_play_filter').hide();
-        event.stopPropagation(); //阻止冒泡
-    }
-			$(function(){
-				
-				$('.main').fadeIn(3000);
-
-				
-				
-//				alert(teacher_list[0].des);
-				for(var i = 0; i < teacher_list.length; i++){
-//                  var html = "<li><a href='/indexDetail?id=" + ajaxText[i]['_id'] + "'><div class='ImgDiv'><img src=" + ajaxText[i].posterUrl + "/><p>更新到08集</p></div><div class='ImgTitle'><p class='imgTitle'>" + ajaxText[i].title + "</p><p>鸣人，佐助</p></div></li>";
-                    
-                    // var html = "<li><a href='" + ajaxText[i].href + "'><div class='ImgDiv'><img src=" + ajaxText[i].mainpic + "/><p>更新到08集</p></div><div class='ImgTitle'><p class='imgTitle'>" + ajaxText[i].title + "</p><p>鸣人，佐助</p></div></li>";
-                    // var html = "<tr><td>"+ajaxText[i].ID+"</td><td>"+ ajaxText[i].classify + "</td><td>";
-                    // html+= ajaxText[i].topic + "</td><td>" + ajaxText[i].publisher + "</td><td>";
-                    // html+= ajaxText[i].date + "</td><td>"+ajaxText[i].visitNum+"</td>";
-                    // html+= "<td>"+ajaxText[i].thumbsUp+"</td><td>未开放</td><td><a class='btn btn-primary'>修改</a> ";
-                    // html+= "<a data-id='"+ajaxText[i].ID+"' class='btn btn-danger del'>删除</a></td></tr>";
-                    var oItem = document.createElement('div');
-                    oItem.value = i;
-                    oItem.className = 'item';
-                    var html = '<div class="img_item"><span></span><img src="' + teacher_list[i].headerimg + '"/></div>';
-                    html += '<div class="content_item"><h3>' + teacher_list[i].school + teacher_list[i].name + '</h3><p>' + teacher_list[i].title + '</p><span>详情 &gt;</span></div>';
-                    oItem.innerHTML = html;
-//                  alert(oItem.value);
-                    $('.teacher_list').append(oItem);
-                    
-                }
-				
-				var mySwiper = new Swiper ('.swiper-container', {
-				    direction: 'vertical',
-				
-				    
-				    noSwiping : true,
-				    noSwipingClass : 'stop-swiping',
-				});    
-  
-  				$('.item').on('click', function(){
-  					$('.teacher_detail .main_div').empty();
-  					
-  					var oid = $(this).val();
-					console.log(oid);
-
-					var html = '<h3>"' + teacher_list[oid].sname + '"' + teacher_list[oid].name + '</h3>';
-					html += '<div class="cover_img"><img src="' + teacher_list[oid].coverimg + '"/></div>';
-//					html += '<p>' + teacher_list[oid].des + '</p>';
-					html += '<div class="detail_p">' + teacher_list[oid].des + '</div>';
-//					html += '<div class="pick_div"><div class="back_div"><span></span><i class="iconfont icon-jiantou_xiangzuoliangci"></i></div><div class="pick_btn">我要PICK TA</div></div>';
-//					html += '<div class="save_div"><div class="line1"><i class="iconfont icon-round_close_light close"></i></div><div class="pick_img"><img src="' + teacher_list[oid].cover + '"/></div><p>长按保存图片</p><p>转发图片为TA点赞</p></div>';
-//					alert(html);
-//console.log($('.teacher_detail'));
-					$('.teacher_detail .main_div').append(html);
-					$('.pick_img img').attr('src', teacher_list[oid].poster);
-
-					$('.swiper-container').fadeOut(500);
-//					$('.swiper-container').hide();
-  					setTimeout(function () {
-//      				$('.teacher_detail').fadeIn(200);
-						$('.teacher_detail').show();$('.teacher_detail .main_div').scrollTop(0);
-    				}, 200);
-  				});
-  				
-  				$('.pick_btn').click(function(){
-					$('.save_div').fadeIn(200);
-				});
-				$('.close').click(function(){
-					$('.save_div').fadeOut(200);
-				});
-  				$('.back_div').click(function(){
-  					$('.teacher_detail').fadeOut(200);					
-  					setTimeout(function () {
-        				$('.swiper-container').fadeIn(200);
-    				}, 200);
-				});
-				
-				
-//				alert(1);
-				$.ajax({
-				    type: "GET",
-				    async:false,
-				    url: 'http://leejune.ebenhang.com/wx/getJsConfig/wx8a87cb88bbe0c0b4',
-				    data: {
-				    	jsApiList : 'onMenuShareTimeline,onMenuShareAppMessage',
-				    	url : location.href.split('#')[0],
-				    	debug: false,
-				    },
-				    dataType: 'json',
-				    success: function(data){
-				        config=data;//alert(config);
-				        console.log(config);
-				        wx.config(data);
-
-						
-						wx.ready(function(){
-							$('#mc_play audio').get(0).play();
-							var shareData = {
-								title: '禅城名教师，等你来pick',	//	标题
-								desc: '为这些可爱的人儿点赞！',	//	描述
-								link: 'http://chrisnight.ebenhang.com/',	//	分享的URL，必须和当前打开的网页的URL是一样的
-								imgUrl: 'http://chrisnight.ebenhang.com/img/wx.jpg',	//	缩略图地址
-								success: function(){
-	//								alert(1);
-								}
-							};
-							wx.onMenuShareAppMessage(shareData);
-							wx.onMenuShareTimeline(shareData);
-						});
-						
-				        
-				   },
-				   error: function(data){
-				   	console.log(data);
-				   }
-				});
-				
-				
-				
-				
-			});
-		</script>
-		<style type="text/css">
-			*{
-				/*margin: 0;
-				padding: 0;*/
-			}
-			
-		</style>
 		
-		<script>
-//			wx.config({
-//				debug: false,
-//				appId: 'wx8a87cb88bbe0c0b4',
-//				timestamp: '1498633007',
-//				nonceStr: 'tnZJBsdrUo88MFiB',
-//				signature: 'c33f35a8a0651a1795223c4c04c7a771',
-//				jsApiList: [
-//					'onMenuShareTimeline',
-//					'onMenuShareAppMessage'
-//				  ]
-//			});
-//			wx.ready(function () {
-//				var shareData = {
-//					title: '禅城名教师',	//	标题
-//					desc: '禅城名教师',	//	描述
-//					link: 'https://chrisnight.github.io/',	//	分享的URL，必须和当前打开的网页的URL是一样的
-//					imgUrl: 'https://chrisnight.github.io/img/wx.jpg'	//	缩略图地址
-//				};
-//				wx.onMenuShareAppMessage(shareData);
-//				wx.onMenuShareTimeline(shareData);
-//			});
-//			wx.error(function (res) {
-//			  //alert(res.errMsg);//错误提示
-//			});
-//$(function(){
-//	
-//
-//var imgUrl = 'https://chrisnight.github.io/img/wx.jpg';  // 分享后展示的一张图片
-// var lineLink = 'http://www.baidu.com'; // 点击分享后跳转的页面地址
-// var descContent = "小灰博客，敬请访问！";  // 分享后的描述信息
-// var shareTitle = '小灰博客';  // 分享后的标题
-//
-//var appid = '';  // 应用id,如果有可以填，没有就留空
-//
-//      function shareFriend() {
-//
-//          WeixinJSBridge.invoke('sendAppMessage',{
-//
-//              "appid": appid,
-//
-//              "img_url": imgUrl,
-//
-//              "img_width": "200",
-//
-//              "img_height": "200",
-//
-//              "link": lineLink,
-//
-//              "desc": descContent,
-//
-//              "title": shareTitle
-//
-//          }, function(res) {
-//
-//        //_report('send_msg', res.err_msg);  // 这是回调函数，必须注释掉
-//
-//          })
-//
-//      }
-//
-//      function shareTimeline() {
-//
-//          WeixinJSBridge.invoke('shareTimeline',{
-//
-//              "img_url": imgUrl,
-//
-//              "img_width": "200",
-//
-//              "img_height": "200",
-//
-//              "link": lineLink,
-//
-//              "desc": descContent,
-//
-//              "title": shareTitle
-//
-//          }, function(res) {
-//
-//       //_report('timeline', res.err_msg); // 这是回调函数，必须注释掉
-//
-//          });
-//
-//      }
-//
-//      function shareWeibo() {
-//
-//          WeixinJSBridge.invoke('shareWeibo',{
-//
-//              "content": descContent,
-//
-//              "url": lineLink,
-//
-//          }, function(res) {
-//
-//              //_report('weibo', res.err_msg);
-//
-//          });
-//
-//      }
-//
-// // 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
-//
-// document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-//
-//          // 发送给好友
-//
-//          WeixinJSBridge.on('menu:share:appmessage', function(argv){
-//
-//              shareFriend();
-//
-//          });
-//
-//          // 分享到朋友圈
-//
-//          WeixinJSBridge.on('menu:share:timeline', function(argv){
-//
-//              shareTimeline();
-//
-//          });
-//
-//          // 分享到微博
-//
-//          WeixinJSBridge.on('menu:share:weibo', function(argv){
-//
-//              shareWeibo();
-//
-//          });
-//
-//      }, false);
-//      
-//      });
-		</script>
+		
 	</head>
 	<body>
-		<div id="Div1" style="display: none"><img id="Img1" width="100%" src="img/wx.jpg" style="position: absolute;z-index: 1000; top: 0; left: 0;"></div>
-		<div class="swiper-container main_div">
-    		<div class="swiper-wrapper">
-        		<div class="swiper-slide section sec1">
-        			<div class="main">
-				
+		<!--首页-->
+		<section class="main">
+			<!--header-->
+			<header>
+				<span class="area">
+					<select name="">
+						<option value="">湛江市</option>
+						<option value="">上海市</option>
+						<option value="">广州市</option>
+					</select>
+				</span>
+				<span class="search">
+					<i class="fa fa-search"></i>
+				</span>
+			</header>
+			<!--/header-->
+			<!--banner-->
+			<section>
+				<div class="banner">
+					<img src="img/1.png"/>
+				</div>
+			</section>
+			<!--/banner-->
+			<!--hot-->
+			<section>
+				<div class="hot">
+					<div class="">
+						<img src="img/1.jpg"/>
+						<h5>建材分类</h5>
 					</div>
-					<div class="tips">
-							
+					<div class="">
+						<img src="img/1.jpg"/>
+						<h5>家私分类</h5>
 					</div>
-					<div class="tx">
-						<img src="img/tx.png"/>
+					<div class="">
+						<img src="img/1.jpg"/>
+						<h5>所有商品明细分类</h5>
 					</div>
-        		</div>
-        		<div class="swiper-slide stop-swiping section">
-        			<div class="teacher_list">
-						<!--
+				</div>
+			</section>
+			<!--/hot-->
+			<!--section1-->
+			<section class="moudle">
+				<div class="moudle_title">
+					<span class="title">
+						品牌
+					</span>
+					<span class="more">
+						更多<i class="fa fa-chevron-right"></i>
+					</span>
+				</div>
+				<ul class="list">
+					<li>
 						<div class="item">
-							<div class="img_item">
-								<span></span>
-								<img src="img/header1.png"/>
-							</div>
-							<div class="content_item">
-								<h3>佛山市第二十五小学杜学杰出</h3>
-								<p>勤耕不缀二十载犹向学堂寄深情，你用剪纸的技巧，剪出一片芳华。</p>
-								<span>详情 &gt;</span>
-							</div>							
-						</div>-->
-					</div>
-        		</div>
-    		</div>
-    	</div>
-    	
-    	<div class="teacher_detail animated bounceInRight">
-    		<div class="main_div">
-				<!--<h3>"剪纸达人"杜学杰</h3>
-				<div class="cover_img">
-					<img src="img/cover1.png"/>
-				</div>
-				<p>
-					这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是
-					内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内
-					容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这
-					是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容
-					这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容
-					这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容
-					这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容
-				</p>-->
+							<img src="img/brand/1.jpg"/>
+						</div>							
+					</li>
+					<li>
+						<div class="item">
+							<img src="img/brand/2.jpg"/>
+						</div>							
+					</li>
+					<li>
+						<div class="item">
+							<img src="img/brand/3.jpg"/>
+						</div>							
+					</li>
 				
-				
-			</div>
-			<div class="pick_div">
-					<div class="back_div">
-						<span></span>
-						<i class="iconfont icon-jiantou_xiangzuoliangci"></i>
-					</div>
-					<div class="pick_btn">
-						我要PICK TA
-					</div>
-				</div>
-			<div class="save_div animated bounceInUp">
-				<div class="line1">
-					<i class="iconfont icon-round_close_light close"></i>
-				</div>
-				<div class="pick_img">
-					<img src="img/2.jpg"/>
-				</div>
-				<p>长按保存图片</p>
-				<p>转发图片为TA点赞</p>
-			</div>
-    	</div>
-    	
-    	<span id="musicControl">
-	        <a id="mc_play" class="on" onclick="play_music()">
-	            <audio id="musicfx" loop="loop" autoplay="autoplay">
-	                <source src="img/1.mp3" type="audio/mpeg">
-	            </audio>
-	        </a>
-		</span>
+				</ul>
+			</section>
+			
 		
-		<!--<script src="js/fakeloader.min.js" type="text/javascript" charset="utf-8"></script>
-		<script>
-            $(document).ready(function(){
-                $(".fakeloader").fakeLoader({
-                    timeToHide:1200,
-                    bgColor:"#e74c3c",
-                    spinner:"spinner2"
-                });
-            });
-        </script>-->
+			<!--/section1-->
+			
+			<!--section2-->
+			<section class="moudle">
+				<div class="moudle_title">
+					<span class="title">
+						建材推荐
+					</span>
+					<span class="more">
+						更多<i class="fa fa-chevron-right"></i>
+					</span>
+				</div>
+				<ul class="list">
+					<li>
+						<div class="item">
+							<img src="img/brand/4.jpg"/>
+						</div>							
+					</li>
+					<li>
+						<div class="item">
+							<img src="img/brand/4.jpg"/>
+						</div>							
+					</li>			
+				</ul>
+			</section>		
+			<!--/section2-->
+			
+			<!--section3-->
+			<section class="moudle">
+				<div class="moudle_title">
+					<span class="title">
+						家私推荐
+					</span>
+					<span class="more">
+						更多<i class="fa fa-chevron-right"></i>
+					</span>
+				</div>
+				<ul class="list">
+					<li>
+						<div class="item">
+							<img src="img/brand/5.jpg"/>
+						</div>							
+					</li>
+					<li>
+						<div class="item">
+							<img src="img/brand/6.jpg"/>
+						</div>							
+					</li>			
+				</ul>
+			</section>		
+			<!--/section3-->
+			
+			<!--section4-->
+			<section class="moudle">
+				<div class="moudle_title">
+					<span class="title">
+						建材新闻
+					</span>
+					<span class="more">
+						更多<i class="fa fa-chevron-right"></i>
+					</span>
+				</div>
+				<ul class="news">
+					<li>
+						<span>[家居]</span> 10余家南京建材家居品牌工厂签约九正 智慧营销系						
+					</li>
+					<li>
+						<span>[陶瓷]</span> 市场增长、利润下滑 背景墙行业已进入凛冬？						
+					</li>		
+					<li>
+						<span>[家居]</span> 建材市场流量大幅衰减 只有连接客户才是成交的第				
+					</li>
+					<li>
+						<span>[灯具]</span> LED芯片格局已成型 厂商有何战略布局？					
+					</li>
+					<li>
+						<span>[洁具]</span> 环保大趋势下 卫浴企业何去何从？					
+					</li>
+				</ul>
+			</section>		
+			<!--/section4-->
+		</section>			
+		<!--/首页-->
 	</body>
 </html>
